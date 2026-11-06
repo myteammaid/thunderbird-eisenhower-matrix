@@ -18,18 +18,26 @@ async function ensureTags() {
 /**
  * spaces.create wirft, wenn der Bereich schon existiert - beim zweiten
  * Start also normal. Darum erst nachsehen.
+ *
+ * Achtung: spaces.query liefert die Bereiche ALLER Erweiterungen. Ein fremder
+ * Bereich mit demselben Namen laesst sich nicht aendern (update wirft), also
+ * nur die eigenen nehmen. Fehlt isSelfOwned, faengt create den Rest ab.
  */
 async function ensureSpace() {
-  const [existing] = await browser.spaces.query({ name: "eisenhower" });
   const tabProperties = { url: "/matrix.html" };
   const buttonProperties = {
     title: browser.i18n.getMessage("extensionName"),
     defaultIcons: "icons/matrix.svg",
   };
-  if (existing) {
-    await browser.spaces.update(existing.id, tabProperties, buttonProperties);
-  } else {
+  const [own] = (await browser.spaces.query({ name: "eisenhower" })).filter(s => s.isSelfOwned);
+  if (own) {
+    await browser.spaces.update(own.id, tabProperties, buttonProperties);
+    return;
+  }
+  try {
     await browser.spaces.create("eisenhower", tabProperties, buttonProperties);
+  } catch (error) {
+    console.warn("Bereich nicht angelegt:", error);
   }
 }
 

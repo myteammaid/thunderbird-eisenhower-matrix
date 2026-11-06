@@ -60,7 +60,7 @@ Tests and screenshots run against a mock of the Thunderbird API in Firefox
 (same engine as Thunderbird), using made-up mailboxes only:
 
     npm install
-    npm test              # 31 checks: order, keyboard, multi-select, drag & drop, tags
+    npm test              # 37 checks: order, keyboard, multi-select, drag & drop, tags, space button
     npm run screenshots   # katalog/screenshots/*.png
 
 ## Deutsch

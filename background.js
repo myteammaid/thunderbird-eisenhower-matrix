@@ -27,7 +27,7 @@ async function ensureSpace() {
   const tabProperties = { url: "/matrix.html" };
   const buttonProperties = {
     title: browser.i18n.getMessage("extensionName"),
-    defaultIcons: "icons/matrix.svg",
+    defaultIcons: "icons/space.svg",
   };
   const [own] = (await browser.spaces.query({ name: "eisenhower" })).filter(s => s.isSelfOwned);
   if (own) {

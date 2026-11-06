@@ -9,7 +9,7 @@ zip -q -r -X "$OUT" \
     manifest.json quadrants.js background.js \
     matrix.html matrix.css matrix.js \
     _locales \
-    icons/matrix.svg icons/eisenhower-32.png icons/eisenhower-64.png icons/eisenhower-128.png \
+    icons/space.svg icons/eisenhower-32.png icons/eisenhower-64.png icons/eisenhower-128.png \
     LICENSE \
     -x '*.swp' '.*'
 echo "$OUT gebaut ($(du -h "$OUT" | cut -f1))"

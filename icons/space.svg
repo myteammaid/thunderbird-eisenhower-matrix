@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Feste Farben statt context-fill: die Leiste dimmt context-fill auf 20 %. -->
+  <rect x="2"  y="2"  width="13" height="13" rx="3" fill="#C4314B"/>
+  <rect x="17" y="2"  width="13" height="13" rx="3" fill="#2493EF"/>
+  <rect x="2"  y="17" width="13" height="13" rx="3" fill="#E8A33D"/>
+  <rect x="17" y="17" width="13" height="13" rx="3" fill="#7A7A7A"/>
+</svg>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="extensionName">Eisenhower Matrix</title>
+  <link rel="stylesheet" href="matrix.css">
+</head>
+<body>
+  <header class="bar">
+    <h1 data-i18n="extensionName"></h1>
+    <label class="field">
+      <span data-i18n="filterAccount"></span>
+      <select id="account"><option value="" data-i18n="filterAccountAll"></option></select>
+    </label>
+    <label class="field">
+      <span data-i18n="filterScope"></span>
+      <select id="scope">
+        <option value="unread" data-i18n="scopeUnread"></option>
+        <option value="all" data-i18n="scopeAll"></option>
+      </select>
+    </label>
+    <label class="field">
+      <span data-i18n="filterOrder"></span>
+      <select id="order">
+        <option value="descending" data-i18n="orderNewest"></option>
+        <option value="ascending" data-i18n="orderOldest"></option>
+      </select>
+    </label>
+    <label class="field">
+      <span data-i18n="filterLimit"></span>
+      <select id="limit">
+        <option>50</option>
+        <option selected>150</option>
+        <option>400</option>
+      </select>
+    </label>
+    <button id="reload" type="button" data-i18n="reload"></button>
+    <span id="status" class="status" role="status"></span>
+  </header>
+
+  <main class="layout">
+    <section class="inbox">
+      <h2><span data-i18n="unsorted"></span> <span class="count" id="count-inbox">–</span></h2>
+      <div class="stack" id="stack-inbox" data-quadrant="" role="listbox" aria-multiselectable="true"></div>
+    </section>
+
+    <div class="matrix">
+      <div class="axis axis-x"><span data-i18n="axisUrgent"></span><span data-i18n="axisNotUrgent"></span></div>
+      <div class="axis axis-y"><span data-i18n="axisImportant"></span><span data-i18n="axisNotImportant"></span></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span class="keys" data-i18n="keysHint"></span>
+    <a id="credit" class="credit" href="https://team-maid.de/" data-i18n="credit"></a>
+  </footer>
+
+  <template id="card-template">
+    <article class="card" draggable="true" role="option" aria-selected="false" tabindex="-1">
+      <div class="card-top">
+        <span class="author"></span>
+        <span class="date"></span>
+      </div>
+      <div class="subject"></div>
+      <div class="card-foot">
+        <span class="account"></span>
+        <button class="open" type="button" tabindex="-1"></button>
+      </div>
+    </article>
+  </template>
+
+  <script src="quadrants.js"></script>
+  <script src="matrix.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "thunderbird-eisenhower-matrix",
+  "private": true,
+  "type": "module",
+  "description": "Development tooling only - the add-on itself has no dependencies.",
+  "scripts": {
+    "build": "./build.sh",
+    "test": "node werkzeuge/test.mjs",
+    "screenshots": "node werkzeuge/screenshots.mjs",
+    "lint": "npx -y addons-linter eisenhower-matrix-*.xpi"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

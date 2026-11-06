@@ -1,0 +1,323 @@
+:root {
+  --bg: #fbfbfe;
+  --panel: #ffffff;
+  --line: #d7d7db;
+  --text: #15141a;
+  --muted: #5b5b66;
+  --accent: #2493ef;
+  --shadow: 0 1px 3px rgba(0, 0, 0, .09);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1b22;
+    --panel: #2b2a33;
+    --line: #52525e;
+    --text: #fbfbfe;
+    --muted: #b1b1bb;
+    --shadow: 0 1px 3px rgba(0, 0, 0, .4);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 13px/1.45 system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Kopfleiste ---------- */
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  flex: none;
+}
+
+.bar h1 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 8px 0 0;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field select {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+
+.bar button {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 4px 11px;
+  cursor: pointer;
+}
+
+.bar button:hover { border-color: var(--accent); }
+
+.status {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---------- Layout ---------- */
+
+.layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 14px;
+  padding: 14px;
+}
+
+.inbox, .quadrant {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.inbox h2, .quadrant h2 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.quadrant h2 { border-top: 3px solid var(--q-color); }
+
+.quadrant .axis-hint {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 11px;
+  opacity: .75;
+}
+
+.count {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+}
+
+.stack {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.stack.dropping {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  outline: 2px dashed var(--accent);
+  outline-offset: -4px;
+}
+
+/* ---------- Matrix ---------- */
+
+.matrix {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  grid-template-rows: 18px 1fr;
+  gap: 4px;
+  min-height: 0;
+}
+
+.grid {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+  min-height: 0;
+}
+
+/*
+ * Die Achsen sind Raster mit denselben Spuren wie .grid - so steht jede
+ * Beschriftung mittig ueber bzw. neben ihrer Quadrantenreihe. Gedreht wird
+ * nur der Text: writing-mode am Container wuerde auch die Flussrichtung
+ * mitdrehen, dann landen "wichtig" und "nicht wichtig" nebeneinander.
+ */
+.axis {
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.axis-x {
+  grid-column: 2;
+  grid-row: 1;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 14px;
+}
+
+.axis-y {
+  grid-column: 1;
+  grid-row: 2;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 14px;
+}
+
+.axis-y span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* ---------- Karten ---------- */
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--q-color, var(--line));
+  border-radius: 5px;
+  padding: 6px 8px;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.card:hover { border-color: var(--accent); }
+.card:focus { outline: none; }
+.card.dragging { opacity: .4; }
+
+.card.selected {
+  background: color-mix(in srgb, var(--accent) 13%, var(--bg));
+  border-color: var(--accent);
+}
+
+/* Der Farbstreifen links zeigt den Quadranten - Hover und Auswahl lassen ihn stehen. */
+.card:hover, .card.selected { border-left-color: var(--q-color, var(--accent)); }
+
+.card.focused {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.card.unread .subject { font-weight: 700; }
+
+.card-top, .card-foot {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.author, .subject {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.author { flex: 1; }
+.date { flex: none; font-variant-numeric: tabular-nums; }
+.subject { font-weight: 500; color: var(--text); }
+.account { flex: 1; opacity: .8; }
+
+.card .open {
+  font: inherit;
+  font-size: 11px;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 10px 4px;
+  text-align: center;
+}
+
+/* ---------- Tastenkappen ---------- */
+
+kbd {
+  font: 600 10px/1 system-ui, sans-serif;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 2px 5px;
+  background: var(--bg);
+  align-self: center;
+}
+
+.quadrant kbd {
+  color: var(--q-color);
+  border-color: color-mix(in srgb, var(--q-color) 45%, var(--line));
+}
+
+/* ---------- Fusszeile ---------- */
+
+.foot {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 14px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.foot .keys {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.foot .credit {
+  margin-left: auto;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.foot .credit:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}

@@ -1,0 +1,68 @@
+{
+  "extensionName": { "message": "Eisenhower-Matrix" },
+  "extensionDescription": { "message": "Sortiert den Posteingang per Drag & Drop oder Tastatur in die vier Eisenhower-Quadranten. Als Schlagwort gespeichert, alles lokal." },
+
+  "tagDo": { "message": "1 Sofort" },
+  "tagPlan": { "message": "2 Planen" },
+  "tagDelegate": { "message": "3 Delegieren" },
+  "tagDrop": { "message": "4 Streichen" },
+
+  "titleDo": { "message": "Sofort erledigen" },
+  "titlePlan": { "message": "Terminieren" },
+  "titleDelegate": { "message": "Delegieren" },
+  "titleDrop": { "message": "Nicht bearbeiten" },
+
+  "axisDo": { "message": "wichtig + dringend" },
+  "axisPlan": { "message": "wichtig, nicht dringend" },
+  "axisDelegate": { "message": "dringend, nicht wichtig" },
+  "axisDrop": { "message": "weder noch" },
+
+  "axisUrgent": { "message": "dringend" },
+  "axisNotUrgent": { "message": "nicht dringend" },
+  "axisImportant": { "message": "wichtig" },
+  "axisNotImportant": { "message": "nicht wichtig" },
+
+  "filterAccount": { "message": "Konto" },
+  "filterAccountAll": { "message": "alle" },
+  "filterScope": { "message": "Zeigen" },
+  "scopeUnread": { "message": "nur ungelesene" },
+  "scopeAll": { "message": "alle im Posteingang" },
+  "filterOrder": { "message": "Reihenfolge" },
+  "orderNewest": { "message": "neueste zuerst" },
+  "orderOldest": { "message": "älteste zuerst" },
+  "filterLimit": { "message": "Höchstens" },
+  "reload": { "message": "Neu laden" },
+
+  "unsorted": { "message": "Unsortiert" },
+  "empty": { "message": "leer" },
+  "emptyInbox": { "message": "nichts Unsortiertes" },
+  "noSubject": { "message": "(kein Betreff)" },
+  "open": { "message": "öffnen" },
+  "openTitle": { "message": "Nachricht öffnen (Enter)" },
+
+  "statusLoading": { "message": "lade …" },
+  "statusSaving": { "message": "speichere …" },
+  "statusLoaded": {
+    "message": "Posteingänge: $COUNT$ · Stand $TIME$",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "time": { "content": "$2" }
+    }
+  },
+  "statusMoved": {
+    "message": "$COUNT$ verschoben",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "statusError": {
+    "message": "Speichern fehlgeschlagen: $ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "statusLoadError": {
+    "message": "Laden fehlgeschlagen: $ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "keysHint": { "message": "1–4 einsortieren · 0 zurück · ↑↓ ←→ wandern · Shift/Strg mehrere · Enter öffnen · Esc abwählen" },
+  "credit": { "message": "Ein Werkzeug von TeamMaid" }
+}

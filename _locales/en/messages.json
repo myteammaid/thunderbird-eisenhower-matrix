@@ -1,0 +1,68 @@
+{
+  "extensionName": { "message": "Eisenhower Matrix" },
+  "extensionDescription": { "message": "Sort your inbox into the four Eisenhower quadrants by drag & drop or keyboard. Stored as tags, nothing leaves your computer." },
+
+  "tagDo": { "message": "1 Do now" },
+  "tagPlan": { "message": "2 Schedule" },
+  "tagDelegate": { "message": "3 Delegate" },
+  "tagDrop": { "message": "4 Eliminate" },
+
+  "titleDo": { "message": "Do now" },
+  "titlePlan": { "message": "Schedule" },
+  "titleDelegate": { "message": "Delegate" },
+  "titleDrop": { "message": "Eliminate" },
+
+  "axisDo": { "message": "important + urgent" },
+  "axisPlan": { "message": "important, not urgent" },
+  "axisDelegate": { "message": "urgent, not important" },
+  "axisDrop": { "message": "neither" },
+
+  "axisUrgent": { "message": "urgent" },
+  "axisNotUrgent": { "message": "not urgent" },
+  "axisImportant": { "message": "important" },
+  "axisNotImportant": { "message": "not important" },
+
+  "filterAccount": { "message": "Account" },
+  "filterAccountAll": { "message": "all" },
+  "filterScope": { "message": "Show" },
+  "scopeUnread": { "message": "unread only" },
+  "scopeAll": { "message": "all in inbox" },
+  "filterOrder": { "message": "Order" },
+  "orderNewest": { "message": "newest first" },
+  "orderOldest": { "message": "oldest first" },
+  "filterLimit": { "message": "At most" },
+  "reload": { "message": "Reload" },
+
+  "unsorted": { "message": "Unsorted" },
+  "empty": { "message": "empty" },
+  "emptyInbox": { "message": "nothing left to sort" },
+  "noSubject": { "message": "(no subject)" },
+  "open": { "message": "open" },
+  "openTitle": { "message": "Open message (Enter)" },
+
+  "statusLoading": { "message": "loading …" },
+  "statusSaving": { "message": "saving …" },
+  "statusLoaded": {
+    "message": "Inboxes: $COUNT$ · updated $TIME$",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "time": { "content": "$2" }
+    }
+  },
+  "statusMoved": {
+    "message": "$COUNT$ moved",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "statusError": {
+    "message": "Could not save: $ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "statusLoadError": {
+    "message": "Could not load: $ERROR$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "keysHint": { "message": "1–4 sort · 0 back · ↑↓ ←→ move · Shift/Ctrl select several · Enter open · Esc deselect" },
+  "credit": { "message": "A tool by TeamMaid" }
+}

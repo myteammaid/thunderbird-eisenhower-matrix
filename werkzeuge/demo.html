@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Eisenhower Matrix – Demo</title>
+  <link rel="stylesheet" href="../matrix.css">
+</head>
+<body>
+<script type="module">
+  // Laedt die echte matrix.html des Add-ons, setzt die nachgebaute API davor
+  // und startet dann quadrants.js und matrix.js - ohne Kopie des Markups.
+  const html = await (await fetch("../matrix.html")).text();
+  const page = new DOMParser().parseFromString(html, "text/html");
+  document.body.replaceChildren(
+    ...[...page.body.children].filter(node => node.tagName !== "SCRIPT")
+  );
+
+  await import("./fake-browser.js");
+
+  for (const src of ["../quadrants.js", "../matrix.js"]) {
+    await new Promise((resolve, reject) => {
+      const script = Object.assign(document.createElement("script"), { src });
+      script.onload = resolve;
+      script.onerror = reject;
+      document.body.append(script);
+    });
+  }
+</script>
+</body>
+</html>

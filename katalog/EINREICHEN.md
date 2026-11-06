@@ -86,7 +86,7 @@ First public release: board with four quadrants, drag & drop, keyboard sorting (
 Plain MailExtension, no Experiment APIs, no remote code, no minified or bundled files.
 Permissions: accountsRead (list inboxes), messagesRead (headers for the cards), messagesUpdate + messagesTags + messagesTagsList (create the four quadrant tags and set them), storage (remember the four filter dropdowns).
 windows.openDefaultBrowser is only called when the user clicks the "A tool by TeamMaid" link in the footer.
-Source repository with tests: <GitHub-Adresse eintragen>
+Source repository with tests: https://github.com/myteammaid/thunderbird-eisenhower-matrix
 
 **Screenshot captions**
 1-matrix-en.png – Unsorted mail on the left, the four quadrants on the right. Two messages selected for keyboard sorting.

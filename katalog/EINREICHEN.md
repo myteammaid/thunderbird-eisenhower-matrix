@@ -5,9 +5,12 @@ Die Datei zum Hochladen entsteht mit `./build.sh`: `eisenhower-matrix-1.0.0.xpi`
 
 ## Ablauf
 
-1. Auf <https://addons.thunderbird.net/> anmelden. Das Konto ist kostenlos, als
-   Anzeigename **TeamMaid** wählen.
-2. Oben rechts **Tools → Submit a New Add-on**.
+1. <https://addons.thunderbird.net/en-US/developers/> öffnen → **Sign In**.
+   Die Anmeldung läuft über ein **Mozilla-Konto** (früher Firefox-Konto),
+   kostenlos; bei Bedarf dort neu anlegen. Im Profil als Anzeigename **TeamMaid** setzen.
+2. Danach auf derselben Seite die Einreichung starten (Knopf zum Einreichen eines
+   neuen Add-ons). Die genauen Beschriftungen der folgenden Seiten sind nicht
+   öffentlich dokumentiert (geprüft 06.11.2026) und können von dieser Liste abweichen.
 3. Vertrieb: **On this site** (gelistet, mit Prüfung).
 4. `eisenhower-matrix-1.0.0.xpi` hochladen. Die automatische Prüfung meldet
    Firefox-Warnungen zu Thunderbird-Schnittstellen. Das ist normal, Fehler gibt es keine.
